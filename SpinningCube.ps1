@@ -5,14 +5,13 @@
 
 Remove-Variable * -ErrorAction SilentlyContinue
 
-[Reflection.Assembly]::LoadFile("\\path\to\OpenTK.dll")
-[Reflection.Assembly]::LoadFile("\\path\to\OpenTK.GLControl.dll")
+[Reflection.Assembly]::LoadFile("$(Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)\lib\OpenTK.dll")
 
 $DebugPreference = "Continue"
 
 $window = [OpenTK.GameWindow]::New()
 $window = New-Object OpenTK.GameWindow
-$window.Title = "omg why did I do this"
+$window.Title = "Cubespin"
 $gl = [OpenTK.Graphics.OpenGL.GL]
 $global:rotationspeed = 180.0
 $global:angle = 0

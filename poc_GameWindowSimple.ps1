@@ -6,8 +6,7 @@
 Remove-Variable * -ErrorAction SilentlyContinue
 $DebugPreference = "Continue"
 
-[Reflection.Assembly]::LoadFile("\\path\to\OpenTK.dll")
-[Reflection.Assembly]::LoadFile("\\path\to\OpenTK.GLControl.dll")
+[Reflection.Assembly]::LoadFile("$(Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)\lib\OpenTK.dll")
 
 $window = [OpenTK.GameWindow]::New()
 $window = New-Object OpenTK.GameWindow
